@@ -357,7 +357,7 @@
 
     .hero-photo-top {
       width: 100%;
-      max-width: min(200px, 72vw);
+      max-width: min(248px, 82vw);
       margin: 0 auto;
       position: relative;
       flex: 0 0 auto;
@@ -365,7 +365,7 @@
 
     @media (min-width: 640px) {
       .hero-photo-top {
-        max-width: min(190px, 32vw);
+        max-width: min(240px, 38vw);
         margin: 0;
       }
     }
@@ -447,7 +447,7 @@
     .hero-photo-wrap .photo-beauty,
     .hero-photo-top .photo-beauty--hero {
       aspect-ratio: 4 / 5;
-      max-height: min(320px, 38vh);
+      max-height: min(400px, 48vh);
       border: 2px solid rgba(255, 255, 255, 0.45);
       box-shadow: 0 8px 24px rgba(143, 36, 73, 0.08);
     }
@@ -455,7 +455,7 @@
     .hero-photo-wrap .photo-beauty img,
     .hero-photo-top .photo-beauty--hero img {
       height: 100%;
-      min-height: 180px;
+      min-height: 220px;
       object-position: center 12%;
       object-fit: cover;
     }
@@ -632,17 +632,11 @@
       align-items: start;
     }
 
-    @media (min-width: 768px) {
-      .about-grid {
-        grid-template-columns: 1fr minmax(160px, 0.72fr);
-        gap: clamp(2rem, 4vw, 2.75rem);
-      }
-    }
-
     .about-main {
       display: flex;
       flex-direction: column;
       gap: clamp(1.25rem, 3vw, 1.75rem);
+      max-width: 42rem;
     }
 
     .about-intro-card {
@@ -1294,20 +1288,6 @@
               </ul>
             </div>
           </div>
-          <aside class="about-aside">
-            <figure class="about-portrait photo-beauty">
-              <img
-                id="about-photo"
-                src="images/photo-about.jpg"
-                alt=""
-                width="800"
-                height="1067"
-                loading="lazy"
-                data-i18n-alt="photo2_alt"
-              >
-              <figcaption data-i18n="photo2_caption">Portrait</figcaption>
-            </figure>
-          </aside>
         </div>
       </div>
     </section>
