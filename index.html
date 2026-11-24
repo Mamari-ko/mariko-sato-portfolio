@@ -314,11 +314,11 @@
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      gap: clamp(0.85rem, 2vw, 1.15rem);
+      gap: clamp(1.28rem, 3vw, 1.73rem);
       width: fit-content;
-      max-width: 100%;
+      max-width: min(100%, 96vw);
       margin: 0 auto;
-      padding: clamp(0.7rem, 2vw, 1rem) clamp(0.85rem, 2.5vw, 1.25rem);
+      padding: clamp(1.05rem, 3vw, 1.5rem) clamp(1.28rem, 3.75vw, 1.88rem);
       background: linear-gradient(
         135deg,
         rgba(255, 252, 254, 0.62) 0%,
@@ -336,7 +336,8 @@
         flex-direction: row;
         flex-wrap: nowrap;
         align-items: center;
-        gap: clamp(0.85rem, 2.2vw, 1.35rem);
+        gap: clamp(1.28rem, 3.3vw, 2.03rem);
+        max-width: min(96vw, 54rem);
       }
     }
 
@@ -345,7 +346,8 @@
       flex-direction: column;
       justify-content: center;
       flex: 0 1 auto;
-      max-width: 20rem;
+      max-width: 30rem;
+      min-width: min(100%, 16.5rem);
     }
 
     @media (max-width: 479px) {
@@ -357,7 +359,7 @@
 
     .hero-photo-top {
       width: 100%;
-      max-width: min(248px, 82vw);
+      max-width: min(372px, 92vw);
       margin: 0 auto;
       position: relative;
       flex: 0 0 auto;
@@ -365,7 +367,7 @@
 
     @media (min-width: 640px) {
       .hero-photo-top {
-        max-width: min(240px, 38vw);
+        max-width: min(360px, 57vw);
         margin: 0;
       }
     }
@@ -413,7 +415,7 @@
     .hero-photo-wrap.is-fallback {
       background: linear-gradient(160deg, #fcd0dc 0%, #f4a5bc 100%);
       aspect-ratio: 4 / 5;
-      min-height: 200px;
+      min-height: 300px;
     }
 
     .photo-beauty {
@@ -447,7 +449,7 @@
     .hero-photo-wrap .photo-beauty,
     .hero-photo-top .photo-beauty--hero {
       aspect-ratio: 4 / 5;
-      max-height: min(400px, 48vh);
+      max-height: min(600px, 72vh);
       border: 2px solid rgba(255, 255, 255, 0.45);
       box-shadow: 0 8px 24px rgba(143, 36, 73, 0.08);
     }
@@ -455,7 +457,7 @@
     .hero-photo-wrap .photo-beauty img,
     .hero-photo-top .photo-beauty--hero img {
       height: 100%;
-      min-height: 220px;
+      min-height: 330px;
       object-position: center 12%;
       object-fit: cover;
     }
