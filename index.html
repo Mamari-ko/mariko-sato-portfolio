@@ -38,8 +38,8 @@
       margin: 0;
       font-family: "Inter", system-ui, sans-serif;
       font-weight: 400;
-      font-size: clamp(16px, 1.05vw, 18px);
-      line-height: 1.72;
+      font-size: clamp(17px, 1.15vw, 19px);
+      line-height: 1.68;
       color: var(--text);
       background:
         radial-gradient(ellipse 120% 80% at 50% -10%, rgba(255, 255, 255, 0.35), transparent 55%),
@@ -238,7 +238,7 @@
     .sakura-petal--br { bottom: 42%; right: 0; transform: rotate(-12deg); opacity: 0.65; }
 
     .hero-masthead {
-      margin: 0 0 clamp(0.5rem, 2vw, 1rem);
+      margin: 0 0 clamp(0.25rem, 1vw, 0.5rem);
       text-align: center;
     }
 
@@ -304,10 +304,11 @@
 
     .hero-one-view {
       display: grid;
-      gap: clamp(1rem, 3vw, 1.5rem);
+      gap: clamp(0.6rem, 2vw, 1rem);
       margin-bottom: 0;
+      margin-top: 0;
       background: rgba(255, 248, 251, 0.82);
-      padding: clamp(0.85rem, 2.5vw, 1.35rem);
+      padding: clamp(0.65rem, 2vw, 1rem) clamp(0.75rem, 2.5vw, 1.15rem);
       box-shadow: 0 16px 48px rgba(143, 36, 73, 0.1);
       align-items: center;
       backdrop-filter: blur(2px);
@@ -315,8 +316,9 @@
 
     @media (min-width: 768px) {
       .hero-one-view {
-        grid-template-columns: 1fr minmax(140px, 26%);
-        gap: clamp(1.25rem, 3vw, 2.25rem);
+        grid-template-columns: 1fr minmax(150px, 30%);
+        gap: clamp(0.75rem, 2vw, 1.25rem);
+        align-items: center;
       }
 
       .hero-info-col { order: 1; }
@@ -479,7 +481,7 @@
     }
 
     .hero-eyebrow {
-      font-size: clamp(13px, 1.25vw, 16px);
+      font-size: clamp(14px, 1.35vw, 18px);
       font-weight: 500;
       letter-spacing: 0.26em;
       text-transform: uppercase;
@@ -501,11 +503,11 @@
 
     .hero-role {
       font-family: "Cormorant Garamond", Georgia, serif;
-      font-size: clamp(2rem, 4.8vw, 2.85rem);
+      font-size: clamp(2.35rem, 5.4vw, 3.25rem);
       font-style: normal;
       font-weight: 600;
       color: var(--accent-dark);
-      margin: 0 0 1.25rem;
+      margin: 0 0 0.85rem;
       line-height: 1.15;
       letter-spacing: 0.02em;
     }
@@ -513,7 +515,7 @@
     .hero-services {
       display: grid;
       gap: clamp(0.75rem, 2vw, 1rem);
-      margin: clamp(1.25rem, 3vw, 2rem) auto 0;
+      margin: clamp(0.85rem, 2vw, 1.35rem) auto 0;
       max-width: var(--max);
       width: 100%;
     }
@@ -536,7 +538,7 @@
     .hero-service-card__title {
       display: block;
       font-family: "Inter", system-ui, sans-serif;
-      font-size: clamp(1.12rem, 2.6vw, 1.38rem);
+      font-size: clamp(1.22rem, 2.85vw, 1.52rem);
       font-weight: 600;
       line-height: 1.35;
       color: var(--accent-dark);
@@ -546,7 +548,7 @@
     .hero-service-card__desc {
       display: block;
       margin-top: 0.45rem;
-      font-size: clamp(0.98rem, 2.1vw, 1.12rem);
+      font-size: clamp(1.05rem, 2.25vw, 1.2rem);
       font-weight: 400;
       line-height: 1.55;
       color: var(--text);
@@ -568,6 +570,10 @@
     .btn-primary:hover {
       background: transparent;
       color: var(--accent-dark);
+    }
+
+    #about.section {
+      padding-top: clamp(2.5rem, 6vw, 3.75rem);
     }
 
     .section {
@@ -616,7 +622,7 @@
 
     .about-lead {
       font-family: "Cormorant Garamond", Georgia, serif;
-      font-size: clamp(1.3rem, 2.7vw, 1.55rem);
+      font-size: clamp(1.45rem, 3vw, 1.75rem);
       line-height: 1.65;
       margin: 0 0 1.5rem;
     }
@@ -625,6 +631,13 @@
       margin: 0 0 1rem;
       color: var(--text-muted);
       font-size: clamp(1rem, 2vw, 1.08rem);
+    }
+
+    .about-note {
+      font-size: clamp(1.05rem, 2.2vw, 1.15rem);
+      color: var(--text);
+      margin: 0.5rem 0 0;
+      max-width: 32em;
     }
 
     .services-block {
@@ -697,8 +710,8 @@
     .about-aside li {
       padding: 0.35rem 0;
       border-bottom: 1px solid var(--line);
-      font-size: 14px;
-      color: var(--text-muted);
+      font-size: clamp(1.02rem, 2.1vw, 1.12rem);
+      color: var(--text);
     }
 
     .values {
@@ -1193,26 +1206,13 @@
       </div>
       <div class="section-inner">
         <p class="section-label" data-i18n="about_label">About</p>
-        <h2 class="section-title" id="about-title" data-i18n="about_title">Background &amp; strengths</h2>
+        <h2 class="section-title" id="about-title" data-i18n="about_title">About</h2>
         <div class="about-grid">
           <div class="about-body">
             <p class="about-lead" data-i18n="about_lead">
-              Japanese translator with 25 years in education. I follow briefs closely and deliver clear, native wording.
+              Japanese translator, 25 years in education. Clear native wording, on brief, on time.
             </p>
-            <p data-i18n="about_p1">
-              I support localization teams, scripted voice work, and mystery-shopper visits across Japan—structured notes, reliable deadlines.
-            </p>
-            <p data-i18n="about_p2">
-              My day job keeps business Japanese sharp. Employer names stay private; client work stays confidential.
-            </p>
-            <div class="services-block">
-              <h3 data-i18n="services_title">What I offer</h3>
-              <ul>
-                <li data-i18n="service_1">Localization QA — native review of UI, help, and marketing copy for natural Japanese.</li>
-                <li data-i18n="service_2">Voice recording — scripted narration with clear, neutral delivery and agreed re-takes.</li>
-                <li data-i18n="service_3">Mystery shopping — scenario-based visits in Japan with structured, factual reports.</li>
-              </ul>
-            </div>
+            <p class="about-note" data-i18n="about_note">Remote from Japan. Client work stays confidential.</p>
           </div>
           <aside class="about-aside">
             <figure class="about-portrait photo-beauty">
@@ -1231,16 +1231,8 @@
             <ul>
               <li data-i18n="strength_1">Native Japanese (Japan)</li>
               <li data-i18n="strength_2">Detail-oriented observation &amp; reporting</li>
-              <li data-i18n="strength_3">Consistent tone across long copy sets</li>
-              <li data-i18n="strength_4">Reliable async communication</li>
+              <li data-i18n="strength_3">Steady tone across long copy</li>
             </ul>
-            <h3 data-i18n="values_title">What I value</h3>
-            <p class="values" data-i18n="values_text">
-              Accuracy over speed theater, respect for the reader, and steady follow-through on every brief.
-            </p>
-            <p class="lang-note" data-i18n="english_note">
-              Simple English by email works well. Briefs and files can be in Japanese or English.
-            </p>
           </aside>
         </div>
       </div>
@@ -1427,22 +1419,13 @@
           hero_strip_label: "Portfolio",
           hero_strip_tag: "Calm delivery · global clients",
           about_label: "About",
-          about_title: "Background & strengths",
-          about_lead: "Japanese translator with 25 years in education. I follow briefs closely and deliver clear, native wording.",
-          about_p1: "I support localization teams, scripted voice work, and mystery-shopper visits across Japan—structured notes, reliable deadlines.",
-          about_p2: "My day job keeps business Japanese sharp. Employer names stay private; client work stays confidential.",
-          services_title: "What I offer",
-          service_1: "Localization QA — natural Japanese for UI, help, and marketing copy.",
-          service_2: "Voice recording — script-faithful narration with agreed re-takes.",
-          service_3: "Mystery shopping — scenario visits in Japan with factual reports.",
+          about_title: "About",
+          about_lead: "Japanese translator, 25 years in education. Clear native wording, on brief, on time.",
+          about_note: "Remote from Japan. Client work stays confidential.",
           strengths_title: "Strengths",
           strength_1: "Native Japanese (Japan)",
-          strength_2: "Careful observation and reporting",
+          strength_2: "Careful observation & reporting",
           strength_3: "Steady tone across long copy",
-          strength_4: "Clear email updates",
-          values_title: "What I value",
-          values_text: "Accuracy, respect for the reader, and finishing every brief.",
-          english_note: "Simple English by email works well. Briefs and files can be in Japanese or English.",
           work_label: "Case Work",
           work_title: "Selected outcomes",
           work_banner_aria: "Decorative sakura blossom pattern",
@@ -1497,22 +1480,13 @@
           hero_strip_label: "Portfolio",
           hero_strip_tag: "桜のように穏やかに、世界の案件へ届える",
           about_label: "About",
-          about_title: "経歴・強み・大切にしていること",
-          about_lead: "翻訳者として、教育分野で約25年。正確な言い回し、丁寧なヒアリング、ブリーフどおりの納品を心がけています。",
-          about_p1: "海外クライアント向けには、翻訳・ローカライズ支援、日本語録音、ミステリーショッパーを中心に対応します。現場の事実を観察し、構造化したレポートで返します。",
-          about_p2: "本業で培ったビジネス日本語の感覚を活かします。勤務先の社名は公開せず、案件内容の守秘も徹底します。",
-          services_title: "提供できること",
-          service_1: "ローカライズQA — UI・ヘルプ・マーケ文面をネイティブ目線で自然な日本語に。",
-          service_2: "音声録音 — 台本どおりの読み上げ。トーン調整と合意したリテイク対応。",
-          service_3: "ミステリーショッパー — シナリオ訪問と事実に基づく構造化レポート（日本国内）。",
+          about_title: "About",
+          about_lead: "翻訳者・教育分野25年。自然な日本語で、ブリーフどおりに納品します。",
+          about_note: "日本からリモート。案件内容は非公開で対応します。",
           strengths_title: "強み",
           strength_1: "日本語ネイティブ",
-          strength_2: "観察と報告の細部までの丁寧さ",
-          strength_3: "長文でもトーンを揃えられる",
-          strength_4: "非同期コミュニケーションが得意",
-          values_title: "大切にしていること",
-          values_text: "見せかけのスピードより正確さ。読み手への敬意。ブリーフの最後までやり切ること。",
-          english_note: "英語メールはシンプルな表現で問題ありません。ブリーフと成果物は日本語・英語どちらでも（事前にご相談ください）。",
+          strength_2: "観察と報告が丁寧",
+          strength_3: "長文でもトーンを統一",
           work_label: "Case Work",
           work_title: "実績例",
           work_banner_aria: "桜の装飾パターン",
