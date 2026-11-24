@@ -303,32 +303,49 @@
     }
 
     .hero-one-view {
-      display: grid;
-      gap: clamp(0.6rem, 2vw, 1rem);
-      margin-bottom: 0;
-      margin-top: 0;
-      background: rgba(255, 248, 251, 0.82);
-      padding: clamp(0.65rem, 2vw, 1rem) clamp(0.75rem, 2.5vw, 1.15rem);
-      box-shadow: 0 16px 48px rgba(143, 36, 73, 0.1);
-      align-items: center;
-      backdrop-filter: blur(2px);
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
     }
 
-    @media (min-width: 768px) {
-      .hero-one-view {
-        grid-template-columns: 1fr minmax(150px, 30%);
-        gap: clamp(0.75rem, 2vw, 1.25rem);
-        align-items: center;
-      }
+    .hero-intro-cluster {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: clamp(0.85rem, 2vw, 1.15rem);
+      width: fit-content;
+      max-width: 100%;
+      margin: 0 auto;
+      padding: clamp(0.7rem, 2vw, 1rem) clamp(0.85rem, 2.5vw, 1.25rem);
+      background: linear-gradient(
+        135deg,
+        rgba(255, 252, 254, 0.62) 0%,
+        rgba(255, 248, 251, 0.78) 55%,
+        rgba(250, 236, 242, 0.7) 100%
+      );
+      border: 1px solid rgba(255, 255, 255, 0.55);
+      border-radius: 4px;
+      box-shadow: 0 12px 36px rgba(143, 36, 73, 0.08);
+      backdrop-filter: blur(3px);
+    }
 
-      .hero-info-col { order: 1; }
-      .hero-photo-top { order: 2; }
+    @media (min-width: 640px) {
+      .hero-intro-cluster {
+        flex-direction: row;
+        flex-wrap: nowrap;
+        align-items: center;
+        gap: clamp(0.85rem, 2.2vw, 1.35rem);
+      }
     }
 
     .hero-info-col {
       display: flex;
       flex-direction: column;
       justify-content: center;
+      flex: 0 1 auto;
+      max-width: 20rem;
     }
 
     @media (max-width: 479px) {
@@ -340,15 +357,16 @@
 
     .hero-photo-top {
       width: 100%;
-      max-width: min(220px, 78vw);
+      max-width: min(200px, 72vw);
       margin: 0 auto;
       position: relative;
+      flex: 0 0 auto;
     }
 
-    @media (min-width: 768px) {
+    @media (min-width: 640px) {
       .hero-photo-top {
-        max-width: 100%;
-        margin: 0 0 0 auto;
+        max-width: min(190px, 32vw);
+        margin: 0;
       }
     }
 
@@ -1191,6 +1209,7 @@
         </h1>
 
         <div class="hero-one-view">
+          <div class="hero-intro-cluster">
           <div class="hero-photo-top">
             <svg class="hero-sakura-cluster hero-sakura-cluster--tl" viewBox="0 0 80 80" aria-hidden="true" fill="none" xmlns="http://www.w3.org/2000/svg">
               <circle cx="40" cy="36" r="5" fill="currentColor" opacity="0.9"/>
@@ -1219,6 +1238,7 @@
               <p class="hero-role" data-i18n="hero_role">Translator</p>
               <a class="btn-primary" href="#contact" data-i18n="hero_cta">Contact me</a>
             </div>
+          </div>
           </div>
         </div>
         <div class="hero-services" role="list" aria-label="What I offer">
