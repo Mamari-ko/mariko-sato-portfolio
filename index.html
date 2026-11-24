@@ -37,9 +37,9 @@
     body {
       margin: 0;
       font-family: "Inter", system-ui, sans-serif;
-      font-weight: 300;
-      font-size: 15px;
-      line-height: 1.75;
+      font-weight: 400;
+      font-size: clamp(16px, 1.05vw, 18px);
+      line-height: 1.72;
       color: var(--text);
       background:
         radial-gradient(ellipse 120% 80% at 50% -10%, rgba(255, 255, 255, 0.35), transparent 55%),
@@ -333,9 +333,8 @@
       .hero-info-col { text-align: center; }
     }
 
-    .hero-copy--inline .hero-eyebrow { margin-bottom: 0.75rem; }
-    .hero-copy--inline .hero-role { margin-bottom: 1rem; }
-    .hero-copy--inline .hero-tagline { margin-bottom: 1.25rem; }
+    .hero-copy--inline .hero-eyebrow { margin-bottom: 0.85rem; }
+    .hero-copy--inline .hero-role { margin-bottom: 1.1rem; }
 
     .hero-photo-top {
       width: 100%;
@@ -464,7 +463,7 @@
       align-items: center;
       justify-content: space-between;
       gap: 1rem;
-      font-size: 11px;
+      font-size: clamp(11px, 1vw, 13px);
       letter-spacing: 0.2em;
       text-transform: uppercase;
       color: var(--text-muted);
@@ -480,10 +479,11 @@
     }
 
     .hero-eyebrow {
-      font-size: clamp(12px, 1.1vw, 14px);
-      letter-spacing: 0.28em;
+      font-size: clamp(13px, 1.25vw, 16px);
+      font-weight: 500;
+      letter-spacing: 0.26em;
       text-transform: uppercase;
-      color: var(--accent);
+      color: var(--accent-dark);
       margin-bottom: 1.5rem;
     }
 
@@ -501,26 +501,62 @@
 
     .hero-role {
       font-family: "Cormorant Garamond", Georgia, serif;
-      font-size: clamp(1.45rem, 3.4vw, 1.85rem);
-      font-style: italic;
-      color: var(--text-muted);
-      margin: 0 0 1.75rem;
+      font-size: clamp(2rem, 4.8vw, 2.85rem);
+      font-style: normal;
+      font-weight: 600;
+      color: var(--accent-dark);
+      margin: 0 0 1.25rem;
+      line-height: 1.15;
+      letter-spacing: 0.02em;
     }
 
-    .hero-tagline {
-      max-width: 36em;
-      margin-left: auto;
-      margin-right: auto;
-      margin: 0 0 2.5rem;
-      font-size: clamp(1.05rem, 2.35vw, 1.2rem);
-      line-height: 1.72;
+    .hero-services {
+      display: grid;
+      gap: clamp(0.75rem, 2vw, 1rem);
+      margin: clamp(1.25rem, 3vw, 2rem) auto 0;
+      max-width: var(--max);
+      width: 100%;
+    }
+
+    @media (min-width: 640px) {
+      .hero-services {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
+    .hero-service-card {
+      border: 2px solid rgba(201, 53, 110, 0.28);
+      background: rgba(255, 255, 255, 0.88);
+      padding: clamp(1.1rem, 2.8vw, 1.5rem) clamp(1rem, 2.5vw, 1.35rem);
+      border-radius: 3px;
+      box-shadow: 0 6px 22px rgba(143, 36, 73, 0.09);
+      text-align: left;
+    }
+
+    .hero-service-card__title {
+      display: block;
+      font-family: "Inter", system-ui, sans-serif;
+      font-size: clamp(1.12rem, 2.6vw, 1.38rem);
+      font-weight: 600;
+      line-height: 1.35;
+      color: var(--accent-dark);
+      letter-spacing: 0.02em;
+    }
+
+    .hero-service-card__desc {
+      display: block;
+      margin-top: 0.45rem;
+      font-size: clamp(0.98rem, 2.1vw, 1.12rem);
+      font-weight: 400;
+      line-height: 1.55;
+      color: var(--text);
     }
 
     .btn-primary {
       display: inline-block;
       align-self: flex-start;
-      font-size: 11px;
-      font-weight: 500;
+      font-size: clamp(12px, 1.1vw, 13px);
+      font-weight: 600;
       letter-spacing: 0.22em;
       text-transform: uppercase;
       padding: 1rem 2rem;
@@ -550,7 +586,7 @@
     }
 
     .section-label {
-      font-size: 11px;
+      font-size: clamp(11px, 1vw, 13px);
       letter-spacing: 0.32em;
       text-transform: uppercase;
       color: var(--accent);
@@ -559,7 +595,7 @@
 
     .section-title {
       font-family: "Cormorant Garamond", Georgia, serif;
-      font-size: clamp(1.75rem, 4vw, 2.5rem);
+      font-size: clamp(1.9rem, 4.2vw, 2.65rem);
       font-weight: 500;
       margin: 0 0 2rem;
       letter-spacing: 0.03em;
@@ -580,7 +616,7 @@
 
     .about-lead {
       font-family: "Cormorant Garamond", Georgia, serif;
-      font-size: clamp(1.2rem, 2.5vw, 1.45rem);
+      font-size: clamp(1.3rem, 2.7vw, 1.55rem);
       line-height: 1.65;
       margin: 0 0 1.5rem;
     }
@@ -588,6 +624,7 @@
     .about-body p {
       margin: 0 0 1rem;
       color: var(--text-muted);
+      font-size: clamp(1rem, 2vw, 1.08rem);
     }
 
     .services-block {
@@ -597,11 +634,11 @@
     }
 
     .services-block h3 {
-      font-size: 11px;
+      font-size: clamp(11px, 1vw, 13px);
       letter-spacing: 0.2em;
       text-transform: uppercase;
-      font-weight: 500;
-      margin: 0 0 1rem;
+      font-weight: 600;
+      margin: 0 0 1.25rem;
       color: var(--accent-dark);
     }
 
@@ -609,21 +646,33 @@
       margin: 0;
       padding: 0;
       list-style: none;
+      display: grid;
+      gap: 0.75rem;
+    }
+
+    @media (min-width: 640px) {
+      .services-block ul {
+        grid-template-columns: repeat(3, 1fr);
+      }
     }
 
     .services-block li {
       position: relative;
-      padding: 0.4rem 0 0.4rem 1.1rem;
-      font-size: 14px;
-      color: var(--text-muted);
-      border-bottom: 1px solid var(--line);
+      padding: 1rem 1rem 1rem 1.15rem;
+      font-size: clamp(0.95rem, 2vw, 1.05rem);
+      line-height: 1.55;
+      border: 2px solid rgba(201, 53, 110, 0.22);
+      background: rgba(255, 255, 255, 0.65);
+      box-shadow: 0 4px 14px rgba(143, 36, 73, 0.06);
+      border-radius: 3px;
+      color: var(--text);
     }
 
     .services-block li::before {
       content: "";
       position: absolute;
-      left: 0;
-      top: 0.95rem;
+      left: 0.75rem;
+      top: 1.1rem;
       width: 5px;
       height: 5px;
       border-radius: 50%;
@@ -968,9 +1017,6 @@
       border-color: var(--accent-dark);
     }
 
-    @media (min-width: 768px) {
-      .hero-tagline { margin-left: 0; margin-right: 0; }
-    }
   </style>
 </head>
 <body>
@@ -1108,12 +1154,23 @@
             <div class="hero-copy hero-copy--inline">
               <p class="hero-eyebrow" data-i18n="hero_eyebrow">Remote · Japan</p>
               <p class="hero-role" data-i18n="hero_role">Translator</p>
-              <p class="hero-tagline" data-i18n="hero_tagline">
-                Localization QA, Japanese voice recording, and mystery-shopper reports—on brief, on time.
-              </p>
               <a class="btn-primary" href="#contact" data-i18n="hero_cta">Contact me</a>
             </div>
           </div>
+        </div>
+        <div class="hero-services" role="list" aria-label="What I offer">
+          <article class="hero-service-card" role="listitem">
+            <span class="hero-service-card__title" data-i18n="hero_svc_1_title">Localization QA</span>
+            <span class="hero-service-card__desc" data-i18n="hero_svc_1_desc">Native Japanese review for UI, help, and marketing copy.</span>
+          </article>
+          <article class="hero-service-card" role="listitem">
+            <span class="hero-service-card__title" data-i18n="hero_svc_2_title">Voice recording</span>
+            <span class="hero-service-card__desc" data-i18n="hero_svc_2_desc">Script-faithful narration with clear delivery and re-takes.</span>
+          </article>
+          <article class="hero-service-card" role="listitem">
+            <span class="hero-service-card__title" data-i18n="hero_svc_3_title">Mystery shopping</span>
+            <span class="hero-service-card__desc" data-i18n="hero_svc_3_desc">Scenario visits in Japan with structured, factual reports.</span>
+          </article>
         </div>
       </div>
       <div class="hero-strip">
@@ -1360,7 +1417,12 @@
           photo2_caption: "Portrait",
           hero_eyebrow: "Remote · Japan",
           hero_role: "Translator",
-          hero_tagline: "Localization QA, Japanese voice recording, and mystery-shopper reports—on brief, on time.",
+          hero_svc_1_title: "Localization QA",
+          hero_svc_1_desc: "Native Japanese review for UI, help, and marketing copy.",
+          hero_svc_2_title: "Voice recording",
+          hero_svc_2_desc: "Script-faithful narration with clear delivery and re-takes.",
+          hero_svc_3_title: "Mystery shopping",
+          hero_svc_3_desc: "Scenario visits in Japan with structured, factual reports.",
           hero_cta: "Contact me",
           hero_strip_label: "Portfolio",
           hero_strip_tag: "Calm delivery · global clients",
@@ -1425,7 +1487,12 @@
           photo2_caption: "Portrait",
           hero_eyebrow: "リモート · 日本",
           hero_role: "Translator（翻訳者）",
-          hero_tagline: "翻訳・ローカライズの日本語QA、台本読み上げ録音、ミステリーショッパー報告書まで—丁寧に、確実にお届けします。",
+          hero_svc_1_title: "ローカライズ QA",
+          hero_svc_1_desc: "UI・ヘルプ・マーケ文面をネイティブ目線でチェック。",
+          hero_svc_2_title: "音声録音",
+          hero_svc_2_desc: "台本どおりの読み上げ。トーン調整・リテイク対応。",
+          hero_svc_3_title: "ミステリーショッパー",
+          hero_svc_3_desc: "日本国内の訪問と、事実ベースの構造化レポート。",
           hero_cta: "お問い合わせ",
           hero_strip_label: "Portfolio",
           hero_strip_tag: "桜のように穏やかに、世界の案件へ届える",
