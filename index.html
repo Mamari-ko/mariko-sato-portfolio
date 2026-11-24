@@ -610,34 +610,92 @@
 
     .about-grid {
       display: grid;
-      gap: 2.5rem;
+      gap: clamp(1.75rem, 4vw, 2.5rem);
+      align-items: start;
     }
 
     @media (min-width: 768px) {
       .about-grid {
-        grid-template-columns: 1.15fr 1fr;
-        gap: 4rem;
+        grid-template-columns: 1fr minmax(160px, 0.72fr);
+        gap: clamp(2rem, 4vw, 2.75rem);
       }
+    }
+
+    .about-main {
+      display: flex;
+      flex-direction: column;
+      gap: clamp(1.25rem, 3vw, 1.75rem);
+    }
+
+    .about-intro-card {
+      padding: clamp(1.25rem, 3vw, 1.75rem) clamp(1.25rem, 3.5vw, 2rem);
+      background: rgba(255, 255, 255, 0.82);
+      border: 2px solid rgba(201, 53, 110, 0.2);
+      border-radius: 3px;
+      box-shadow: 0 8px 28px rgba(143, 36, 73, 0.08);
     }
 
     .about-lead {
       font-family: "Cormorant Garamond", Georgia, serif;
-      font-size: clamp(1.45rem, 3vw, 1.75rem);
-      line-height: 1.65;
-      margin: 0 0 1.5rem;
-    }
-
-    .about-body p {
-      margin: 0 0 1rem;
-      color: var(--text-muted);
-      font-size: clamp(1rem, 2vw, 1.08rem);
+      font-size: clamp(1.5rem, 3.2vw, 1.85rem);
+      line-height: 1.6;
+      margin: 0;
+      color: var(--accent-dark);
     }
 
     .about-note {
-      font-size: clamp(1.05rem, 2.2vw, 1.15rem);
+      font-size: clamp(1.08rem, 2.25vw, 1.2rem);
       color: var(--text);
-      margin: 0.5rem 0 0;
-      max-width: 32em;
+      margin: 0.85rem 0 0;
+      padding-top: 0.85rem;
+      border-top: 1px solid var(--line);
+      max-width: none;
+    }
+
+    .about-strengths {
+      padding: clamp(1.35rem, 3.2vw, 1.85rem) clamp(1.15rem, 3vw, 1.65rem);
+      background: linear-gradient(135deg, rgba(255, 248, 251, 0.95) 0%, rgba(250, 232, 239, 0.85) 100%);
+      border: 2px solid rgba(201, 53, 110, 0.35);
+      border-radius: 3px;
+      box-shadow: 0 10px 32px rgba(143, 36, 73, 0.1);
+    }
+
+    .about-strengths__title {
+      margin: 0 0 clamp(1rem, 2.5vw, 1.35rem);
+      font-family: "Cormorant Garamond", Georgia, serif;
+      font-size: clamp(1.55rem, 3.5vw, 2rem);
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--accent-dark);
+    }
+
+    .about-strengths__list {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: grid;
+      gap: clamp(0.65rem, 1.8vw, 0.85rem);
+    }
+
+    @media (min-width: 600px) {
+      .about-strengths__list {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
+    .about-strength-card {
+      display: block;
+      padding: clamp(1rem, 2.5vw, 1.25rem) clamp(0.85rem, 2vw, 1.1rem);
+      font-size: clamp(1.1rem, 2.35vw, 1.25rem);
+      font-weight: 600;
+      line-height: 1.45;
+      text-align: center;
+      color: var(--accent-dark);
+      background: rgba(255, 255, 255, 0.92);
+      border: 2px solid rgba(255, 255, 255, 0.7);
+      border-radius: 3px;
+      box-shadow: 0 4px 16px rgba(143, 36, 73, 0.07);
     }
 
     .services-block {
@@ -692,26 +750,17 @@
       background: var(--accent);
     }
 
-    .about-aside h3 {
-      font-size: 11px;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      font-weight: 500;
-      margin: 0 0 1rem;
-      color: var(--accent-dark);
+    .about-aside {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
     }
 
-    .about-aside ul {
-      list-style: none;
-      padding: 0;
-      margin: 0 0 2rem;
-    }
-
-    .about-aside li {
-      padding: 0.35rem 0;
-      border-bottom: 1px solid var(--line);
-      font-size: clamp(1.02rem, 2.1vw, 1.12rem);
-      color: var(--text);
+    @media (min-width: 768px) {
+      .about-aside {
+        position: sticky;
+        top: 5.5rem;
+      }
     }
 
     .values {
@@ -731,8 +780,9 @@
     }
 
     .about-portrait {
-      margin: 0 0 1.5rem;
-      max-width: 168px;
+      margin: 0;
+      max-width: clamp(168px, 28vw, 200px);
+      width: 100%;
       margin-left: auto;
       margin-right: auto;
       box-shadow: 0 6px 20px rgba(143, 36, 73, 0.06);
@@ -1208,11 +1258,21 @@
         <p class="section-label" data-i18n="about_label">About</p>
         <h2 class="section-title" id="about-title" data-i18n="about_title">About</h2>
         <div class="about-grid">
-          <div class="about-body">
-            <p class="about-lead" data-i18n="about_lead">
-              Japanese translator, 25 years in education. Clear native wording, on brief, on time.
-            </p>
-            <p class="about-note" data-i18n="about_note">Remote from Japan. Client work stays confidential.</p>
+          <div class="about-main">
+            <div class="about-intro-card">
+              <p class="about-lead" data-i18n="about_lead">
+                Japanese translator, 25 years in education. Clear native wording, on brief, on time.
+              </p>
+              <p class="about-note" data-i18n="about_note">Remote from Japan. Client work stays confidential.</p>
+            </div>
+            <div class="about-strengths" aria-labelledby="about-strengths-title">
+              <h3 class="about-strengths__title" id="about-strengths-title" data-i18n="strengths_title">Strengths</h3>
+              <ul class="about-strengths__list">
+                <li class="about-strength-card" data-i18n="strength_1">Native Japanese (Japan)</li>
+                <li class="about-strength-card" data-i18n="strength_2">Detail-oriented observation &amp; reporting</li>
+                <li class="about-strength-card" data-i18n="strength_3">Steady tone across long copy</li>
+              </ul>
+            </div>
           </div>
           <aside class="about-aside">
             <figure class="about-portrait photo-beauty">
@@ -1227,12 +1287,6 @@
               >
               <figcaption data-i18n="photo2_caption">Portrait</figcaption>
             </figure>
-            <h3 data-i18n="strengths_title">Strengths</h3>
-            <ul>
-              <li data-i18n="strength_1">Native Japanese (Japan)</li>
-              <li data-i18n="strength_2">Detail-oriented observation &amp; reporting</li>
-              <li data-i18n="strength_3">Steady tone across long copy</li>
-            </ul>
           </aside>
         </div>
       </div>
