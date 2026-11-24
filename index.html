@@ -245,10 +245,11 @@
     .hero-masthead-line {
       display: block;
       font-family: "Bebas Neue", sans-serif;
-      font-size: clamp(3.2rem, 14vw, 9.5rem);
+      font-size: clamp(2.15rem, 9.5vw, 8.25rem);
       font-weight: 400;
-      line-height: 0.88;
-      letter-spacing: 0.04em;
+      line-height: 1;
+      letter-spacing: 0.06em;
+      white-space: nowrap;
       text-transform: uppercase;
       /* 着物写真付近と同じ全面桜背景（sakura-frame）を拡大して文字内に収める */
       background-image:
@@ -268,19 +269,19 @@
         contrast(1.12);
     }
 
-    .hero-masthead-line--second {
-      margin-top: -0.08em;
-      font-size: clamp(2.75rem, 12vw, 8.25rem);
-      letter-spacing: 0.08em;
-      background-position: 58% 2%, 42% 10%;
+    .hero-masthead-word {
+      letter-spacing: 0.1em;
+      color: inherit;
+      -webkit-text-fill-color: transparent;
     }
 
     @media (max-width: 767px) {
       .hero-masthead-line {
+        letter-spacing: 0.035em;
         background-position: 72% 0%, 58% 8%;
       }
-      .hero-masthead-line--second {
-        background-position: 70% 4%, 55% 12%;
+      .hero-masthead-word {
+        letter-spacing: 0.06em;
       }
     }
 
@@ -318,7 +319,7 @@
       width: fit-content;
       max-width: min(100%, 96vw);
       margin: 0 auto;
-      padding: clamp(1.05rem, 3vw, 1.5rem) clamp(1.28rem, 3.75vw, 1.88rem);
+      padding: clamp(1.35rem, 3.6vw, 2rem) clamp(1.28rem, 3.75vw, 1.88rem);
       background: linear-gradient(
         135deg,
         rgba(255, 252, 254, 0.62) 0%,
@@ -336,6 +337,7 @@
         flex-direction: row;
         flex-wrap: nowrap;
         align-items: center;
+        justify-content: center;
         gap: clamp(1.28rem, 3.3vw, 2.03rem);
         max-width: min(96vw, 54rem);
       }
@@ -345,6 +347,7 @@
       display: flex;
       flex-direction: column;
       justify-content: center;
+      align-self: center;
       flex: 0 1 auto;
       max-width: 30rem;
       min-width: min(100%, 16.5rem);
@@ -363,12 +366,16 @@
       margin: 0 auto;
       position: relative;
       flex: 0 0 auto;
+      align-self: center;
+      padding: 0.65rem 0.35rem 0.65rem;
+      box-sizing: content-box;
     }
 
     @media (min-width: 640px) {
       .hero-photo-top {
         max-width: min(360px, 57vw);
         margin: 0;
+        padding: 0.75rem 0.4rem 0.75rem;
       }
     }
 
@@ -458,7 +465,7 @@
     .hero-photo-top .photo-beauty--hero img {
       height: 100%;
       min-height: 330px;
-      object-position: center 12%;
+      object-position: center 22%;
       object-fit: cover;
     }
 
@@ -1216,8 +1223,7 @@
         </div>
 
         <h1 class="hero-masthead" id="hero-heading">
-          <span class="hero-masthead-line" aria-hidden="true">MARIKO'S</span>
-          <span class="hero-masthead-line hero-masthead-line--second" aria-hidden="true">PORTFOLIO</span>
+          <span class="hero-masthead-line" aria-hidden="true">MARIKO'S <span class="hero-masthead-word">PORTFOLIO</span></span>
           <span class="visually-hidden">MARIKO SATO — Portfolio</span>
         </h1>
 
