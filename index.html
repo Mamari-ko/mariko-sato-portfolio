@@ -627,16 +627,24 @@
     }
 
     .about-grid {
-      display: grid;
-      gap: clamp(1.75rem, 4vw, 2.5rem);
-      align-items: start;
+      display: block;
+    }
+
+    .about-grid .about-main {
+      width: 100%;
     }
 
     .about-main {
-      display: flex;
-      flex-direction: column;
-      gap: clamp(1.25rem, 3vw, 1.75rem);
-      max-width: 42rem;
+      display: grid;
+      gap: clamp(1.15rem, 3vw, 1.65rem);
+      align-items: stretch;
+    }
+
+    @media (min-width: 768px) {
+      .about-main {
+        grid-template-columns: 1fr 1fr;
+        gap: clamp(1.25rem, 3vw, 2rem);
+      }
     }
 
     .about-intro-card {
@@ -690,9 +698,19 @@
       gap: clamp(0.65rem, 1.8vw, 0.85rem);
     }
 
-    @media (min-width: 600px) {
+    @media (min-width: 600px) and (max-width: 767px) {
       .about-strengths__list {
         grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
+    @media (min-width: 768px) {
+      .about-strengths__list {
+        grid-template-columns: 1fr;
+      }
+
+      .about-strength-card {
+        text-align: left;
       }
     }
 
@@ -847,7 +865,7 @@
 
     .testimonial-quote {
       font-family: "Cormorant Garamond", Georgia, serif;
-      font-size: clamp(1.15rem, 2.8vw, 1.35rem);
+      font-size: clamp(1.25rem, 3vw, 1.5rem);
       line-height: 1.65;
       font-style: italic;
       color: var(--accent-dark);
@@ -856,14 +874,24 @@
 
     .testimonial-job {
       font-family: "Cormorant Garamond", Georgia, serif;
-      font-size: 1.25rem;
-      font-weight: 500;
+      font-size: clamp(1.35rem, 2.8vw, 1.55rem);
+      font-weight: 600;
       margin: 0 0 0.5rem;
       color: var(--accent-dark);
     }
 
+    #work .section-label,
+    #contact .section-label {
+      font-size: clamp(12px, 1.15vw, 14px);
+    }
+
+    #work .section-title,
+    #contact .section-title {
+      margin-bottom: clamp(1.5rem, 3vw, 2rem);
+    }
+
     .testimonial-meta {
-      font-size: 13px;
+      font-size: clamp(0.98rem, 2vw, 1.1rem);
       color: var(--text-muted);
       margin: 0 0 0.75rem;
       line-height: 1.5;
@@ -873,7 +901,8 @@
       display: flex;
       align-items: center;
       gap: 0.5rem;
-      font-size: 14px;
+      font-size: clamp(1rem, 2.1vw, 1.15rem);
+      font-weight: 500;
       color: var(--accent-dark);
       margin: 0 0 1rem;
     }
@@ -884,7 +913,7 @@
     }
 
     .testimonial cite {
-      font-size: 13px;
+      font-size: clamp(0.98rem, 2vw, 1.08rem);
       font-style: normal;
       color: var(--text-muted);
     }
@@ -912,40 +941,25 @@
 
     .case-num {
       font-family: "Cormorant Garamond", Georgia, serif;
-      font-size: 1.5rem;
+      font-size: clamp(1.35rem, 2.8vw, 1.75rem);
+      font-weight: 600;
       color: var(--accent);
     }
 
     .case-item h3 {
       font-family: "Cormorant Garamond", Georgia, serif;
-      font-size: 1.5rem;
-      font-weight: 500;
-      margin: 0 0 1.25rem;
+      font-size: clamp(1.45rem, 3.2vw, 1.9rem);
+      font-weight: 600;
+      margin: 0 0 0.75rem;
       color: var(--accent-dark);
     }
 
-    .case-meta { display: grid; gap: 1rem; }
-
-    @media (min-width: 600px) {
-      .case-meta {
-        grid-template-columns: repeat(3, 1fr);
-        gap: 1.5rem;
-      }
-    }
-
-    .case-meta dt {
-      font-size: 10px;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      color: var(--accent);
-      margin-bottom: 0.35rem;
-    }
-
-    .case-meta dd {
+    .case-summary {
       margin: 0;
-      font-size: 14px;
-      line-height: 1.6;
-      color: var(--text-muted);
+      font-size: clamp(1.05rem, 2.25vw, 1.22rem);
+      line-height: 1.62;
+      color: var(--text);
+      font-weight: 400;
     }
 
     .client-note {
@@ -958,16 +972,16 @@
 
     .client-note p {
       margin: 0;
-      font-family: "Cormorant Garamond", Georgia, serif;
-      font-size: 1.12rem;
-      line-height: 1.7;
+      font-family: "Inter", system-ui, sans-serif;
+      font-size: clamp(1.05rem, 2.25vw, 1.2rem);
+      line-height: 1.65;
       color: var(--text);
     }
 
     .client-note .note-label {
       display: block;
       font-family: "Inter", sans-serif;
-      font-size: 10px;
+      font-size: clamp(11px, 1vw, 13px);
       letter-spacing: 0.2em;
       text-transform: uppercase;
       margin-bottom: 1rem;
@@ -977,8 +991,10 @@
     .contact-wrap { max-width: 40em; }
 
     .contact-wrap > p {
-      color: var(--text-muted);
+      color: var(--text);
       margin: 0 0 1.5rem;
+      font-size: clamp(1.05rem, 2.25vw, 1.2rem);
+      line-height: 1.65;
     }
 
     .rates-box {
@@ -989,7 +1005,7 @@
     }
 
     .rates-box h3 {
-      font-size: 11px;
+      font-size: clamp(11px, 1vw, 13px);
       letter-spacing: 0.2em;
       text-transform: uppercase;
       margin: 0 0 0.75rem;
@@ -998,8 +1014,9 @@
 
     .rates-box p {
       margin: 0;
-      font-size: 14px;
-      color: var(--text-muted);
+      font-size: clamp(1.02rem, 2.1vw, 1.15rem);
+      line-height: 1.6;
+      color: var(--text);
     }
 
     .contact-actions {
@@ -1010,14 +1027,14 @@
     }
 
     .email-display {
-      font-size: 14px;
+      font-size: clamp(1rem, 2.1vw, 1.12rem);
       letter-spacing: 0.02em;
       color: var(--text-muted);
     }
 
     .btn-outline {
       display: inline-block;
-      font-size: 11px;
+      font-size: clamp(12px, 1.1vw, 14px);
       font-weight: 500;
       letter-spacing: 0.22em;
       text-transform: uppercase;
@@ -1036,7 +1053,7 @@
     }
 
     .footer-links a {
-      font-size: 12px;
+      font-size: clamp(12px, 1.1vw, 14px);
       letter-spacing: 0.14em;
       text-transform: uppercase;
       color: var(--accent-dark);
@@ -1050,7 +1067,7 @@
       padding: 2rem clamp(1.25rem, 4vw, 2.5rem) 3rem;
       border-top: 1px solid var(--line);
       text-align: center;
-      font-size: 11px;
+      font-size: clamp(12px, 1.15vw, 14px);
       letter-spacing: 0.12em;
       color: var(--text-muted);
     }
@@ -1326,20 +1343,7 @@
             <span class="case-num" aria-hidden="true">01</span>
             <div>
               <h3 data-i18n="case1_title">Mystery shopper reports</h3>
-              <dl class="case-meta">
-                <div>
-                  <dt data-i18n="case_challenge">Challenge</dt>
-                  <dd data-i18n="case1_c">Repeatable visits and fact-based reports—not impressions only.</dd>
-                </div>
-                <div>
-                  <dt data-i18n="case_action">Action</dt>
-                  <dd data-i18n="case1_a">About 12 years of scenario visits, checklists, and on-time write-ups.</dd>
-                </div>
-                <div>
-                  <dt data-i18n="case_result">Result</dt>
-                  <dd data-i18n="case1_r">Reports clients used as-is in quality reviews.</dd>
-                </div>
-              </dl>
+              <p class="case-summary" data-i18n="case1_summary">12+ years of mystery-shopping across Japan—fact-based reports clients used in QA reviews.</p>
             </div>
           </article>
 
@@ -1347,20 +1351,7 @@
             <span class="case-num" aria-hidden="true">02</span>
             <div>
               <h3 data-i18n="case2_title">Scripted Japanese voice</h3>
-              <dl class="case-meta">
-                <div>
-                  <dt data-i18n="case_challenge">Challenge</dt>
-                  <dd data-i18n="case2_c">Fixed scripts; no ad-lib that breaks timing or meaning.</dd>
-                </div>
-                <div>
-                  <dt data-i18n="case_action">Action</dt>
-                  <dd data-i18n="case2_a">Recorded opening and closing lines; matched tone and re-took for clarity.</dd>
-                </div>
-                <div>
-                  <dt data-i18n="case_result">Result</dt>
-                  <dd data-i18n="case2_r">Audio ready for the product pipeline.</dd>
-                </div>
-              </dl>
+              <p class="case-summary" data-i18n="case2_summary">Scripted open/close lines—on-brief tone, clear re-takes, ready for production.</p>
             </div>
           </article>
 
@@ -1368,20 +1359,7 @@
             <span class="case-num" aria-hidden="true">03</span>
             <div>
               <h3 data-i18n="case3_title">Localization copy polish</h3>
-              <dl class="case-meta">
-                <div>
-                  <dt data-i18n="case_challenge">Challenge</dt>
-                  <dd data-i18n="case3_c">Japanese needed to sound native—polite, clear, not stiff.</dd>
-                </div>
-                <div>
-                  <dt data-i18n="case_action">Action</dt>
-                  <dd data-i18n="case3_a">Revised notices and short copy; flagged register and collocation issues.</dd>
-                </div>
-                <div>
-                  <dt data-i18n="case_result">Result</dt>
-                  <dd data-i18n="case3_r">Less back-and-forth; final text read naturally.</dd>
-                </div>
-              </dl>
+              <p class="case-summary" data-i18n="case3_summary">Polished UI and short copy so Japanese reads naturally, with fewer revision rounds.</p>
             </div>
           </article>
 
@@ -1390,7 +1368,7 @@
         <blockquote class="testimonial" id="testimonial">
           <p class="section-label" data-i18n="testimonial_label">Client review</p>
           <p class="testimonial-job" data-i18n="testimonial_job">Japanese Native Speaker</p>
-          <p class="testimonial-meta" data-i18n="testimonial_meta">Jun 8, 2026 – Jun 13, 2026 · $25.00 earned · Fixed-price</p>
+          <p class="testimonial-meta" data-i18n="testimonial_meta">Jun 2026 · Fixed-price · 5.0</p>
           <p class="testimonial-rating">
             <span class="testimonial-stars" aria-hidden="true">★★★★★</span>
             <span data-i18n="testimonial_rating">5.0 out of 5</span>
@@ -1404,7 +1382,7 @@
         <div class="client-note">
           <span class="note-label" data-i18n="client_note_label">For potential clients</span>
           <p data-i18n="client_note">
-            Agencies, product teams, startups, and research firms that need native Japanese, voice, or field work in Japan.
+            Agencies and product teams that need native Japanese, voice recording, or field work in Japan.
           </p>
         </div>
       </div>
@@ -1483,34 +1461,25 @@
           work_label: "Case Work",
           work_title: "Selected outcomes",
           work_banner_aria: "Decorative sakura blossom pattern",
-          case_challenge: "Challenge",
-          case_action: "Action",
-          case_result: "Result",
           case1_title: "Mystery shopper reports",
-          case1_c: "Repeatable visits and fact-based reports—not impressions only.",
-          case1_a: "About 12 years of scenario visits, checklists, and on-time write-ups.",
-          case1_r: "Reports clients used as-is in quality reviews.",
+          case1_summary: "12+ years of mystery-shopping across Japan—fact-based reports clients used in QA reviews.",
           case2_title: "Scripted Japanese voice",
-          case2_c: "Fixed scripts; no ad-lib that breaks timing or meaning.",
-          case2_a: "Recorded opening and closing lines; matched tone and re-took for clarity.",
-          case2_r: "Audio ready for the product pipeline.",
+          case2_summary: "Scripted open/close lines—on-brief tone, clear re-takes, ready for production.",
           case3_title: "Localization copy polish",
-          case3_c: "Japanese needed to sound native—polite, clear, not stiff.",
-          case3_a: "Revised notices and short copy; flagged register and collocation issues.",
-          case3_r: "Less back-and-forth; final text read naturally.",
+          case3_summary: "Polished UI and short copy so Japanese reads naturally, with fewer revision rounds.",
           testimonial_label: "Client review",
           testimonial_job: "Japanese Native Speaker",
-          testimonial_meta: "Jun 8, 2026 \u2013 Jun 13, 2026 \u00b7 $25.00 earned \u00b7 Fixed-price",
+          testimonial_meta: "Jun 2026 · Fixed-price · 5.0",
           testimonial_rating: "5.0 out of 5",
           testimonial_quote: "\u201cShe did a good job. I would recommend her services to others.\u201d",
           testimonial_cite: "\u2014 Upwork client",
           client_note_label: "Who I work with",
-          client_note: "Agencies, product teams, startups, and research firms that need native Japanese, voice, or field work in Japan.",
+          client_note: "Agencies and product teams that need native Japanese, voice recording, or field work in Japan.",
           contact_label: "Contact",
           contact_title: "Let's talk",
-          contact_intro: "Email me the project type, deadline, and scope. I reply from Japan (JST).",
+          contact_intro: "Send project type, deadline, and scope by email. I reply from Japan (JST).",
           rates_title: "Rates",
-          rates_body: "I quote upfront from your brief—fixed scope, no surprise add-ons.",
+          rates_body: "Upfront quote from your brief—fixed scope, no surprise fees.",
           contact_cta: "Email me",
           footer_copy: "\u00a9 MARIKO SATO. Sendai area, Miyagi, Japan.",
           footer_upwork: "View on Upwork",
@@ -1544,32 +1513,23 @@
           work_label: "Case Work",
           work_title: "実績例",
           work_banner_aria: "桜の装飾パターン",
-          case_challenge: "課題",
-          case_action: "行動",
-          case_result: "結果",
           case1_title: "ミステリーショッパー・サービス評価",
-          case1_c: "シナリオに沿った訪問と、事実に基づくレポートが必要だった。",
-          case1_a: "約12年にわたり覆面調査を担当。チェックリストに沿った観察・分析し、期限までに提出。",
-          case1_r: "そのまま品質レビューに使える、読みやすい報告として信頼を獲得。",
+          case1_summary: "日本全国の覆面調査を12年以上。事実ベースのレポートを品質レビューにそのまま活用。",
           case2_title: "日本語音声録音（台本読み上げ）",
-          case2_c: "台本どおりのナレーションが必要で、即興で意味や尺を変えられない。",
-          case2_a: "提供された台本でオープニング・クロージングを録音。トーン調整と必要なリテイクを実施。",
-          case2_r: "追加編集の手間が少ない音声データとして納品。",
+          case2_summary: "台本どおりのオープニング／クロージング収録。トーン合わせとリテイクで制作に渡せる音声。",
           case3_title: "ローカライズ志向の日本語コピー",
-          case3_c: "日本語として自然で、丁寧すぎず冷たくもない表現が求められた。",
-          case3_a: "案内文・イベント文案などを推敲。非ネイティブ原稿の不自然な搭配やレジスターを指摘。",
-          case3_r: "関係者との確認往復が減り、日本語話者に自然に伝わる文案に。",
+          case3_summary: "UI・短文コピーを自然な日本語に整え、確認の往復を減らした。",
           testimonial_label: "クライアント評価",
           testimonial_job: "Japanese Native Speaker",
-          testimonial_meta: "2026年6月8日〜13日 · $25.00 · 固定報酬",
+          testimonial_meta: "2026年6月 · 固定報酬 · 5.0",
           testimonial_rating: "5.0 / 5",
           testimonial_quote: "「She did a good job. I would recommend her services to others.」",
           testimonial_cite: "— Upworkクライアント",
           client_note_label: "こんな方と",
-          client_note: "翻訳会社・ローカライズチーム・プロダクト企業・スタートアップ・リサーチ会社など、ネイティブ日本語や日本国内フィールド調査が必要な案件に対応します。ブリーフとメール連絡が明確なほどスムーズです。",
+          client_note: "翻訳会社・プロダクトチーム向け。ネイティブ日本語、音声収録、日本国内のフィールド調査に対応します。",
           contact_label: "Contact",
           contact_title: "ご依頼・ご相談",
-          contact_intro: "案件の種類、納期、分量（文字数・訪問数など）、スタイルガイドがあればお知らせください。メールでご返信します（日本時間）。",
+          contact_intro: "案件の種類・納期・分量をメールでお送りください。日本時間で返信します。",
           rates_title: "料金",
           rates_body: "ブリーフをもとに事前見積り。確定後の勝手な追加請求はしません。",
           contact_cta: "メールする",
